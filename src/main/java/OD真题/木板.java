@@ -33,7 +33,32 @@ package OD真题;
  */
 public class 木板 {
     public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
 
+        int number = s.nextInt(); // 木板的数量
+        int length = s.nextInt(); // 木料的长度
+
+        // 木板的数组
+        int[] muBan = new int[number];
+        int k = 0;
+        while (s.hasNext() && k < number){
+            muBan[k] = s.nextInt();
+            k++;
+        }
+
+        Arrays.sort(muBan); // 把木板的数组排序
+
+        while (length > 0) { // 当木料长度等于 0 的时候终止循环
+            for (int i = 0; i < number; i++) {
+                // 如果前一根木板的长度
+                if ( i + 1 < number && muBan[i]+1 <= muBan[i + 1]) {
+                    muBan[i] += 1;
+                    length--;
+                    break;
+                }
+            }
+        }
+        System.out.println(muBan[0]);
     }
 
 }
