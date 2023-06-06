@@ -22,13 +22,24 @@ public class P5单词倒序 {
 
         String str = s.nextLine();
         StringBuilder result = new StringBuilder();
+        int start = 0;
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
 
-            if (c == ' ' || c == '?' || c == ',') {
-
+            // 当当前字符 符合条件的话 ，反转当前字符前的字符串再拼接，
+            if (c == ' ' || c == '?' || c == ',' || c == '.') {
+                if (i > start) {
+                    StringBuilder sb = new StringBuilder(str.substring(start, i));
+                    result.append(sb.reverse()).append(c);
+                }else {
+                    result.append(c);
+                }
+                start = i + 1;
+            }else if (i == str.length() - 1) {
+                result.append(new StringBuilder(str.substring(start, i+1)).reverse());
             }
 
         }
+        System.out.println(result);
     }
 }
