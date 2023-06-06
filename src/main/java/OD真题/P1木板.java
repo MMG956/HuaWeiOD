@@ -1,5 +1,8 @@
 package OD真题;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 /**
  * 木板
  * 小明有n块木板，第i（1<i<n）块木板的长度为ai，
@@ -31,7 +34,7 @@ package OD真题;
  *   4
  *   最短木板长为4
  */
-public class 木板 {
+public class P1木板 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
 
